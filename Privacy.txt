@@ -1,0 +1,1 @@
+Wish Calculator does not collect any external data, and does all processing offline, on your device. All data is deleted when the application is closed.
