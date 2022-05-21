@@ -16,14 +16,14 @@ Takes the amount of **wishes** you want to spend as input, and outputs a distrib
 
 ### Example
 
-Copies Pulled | Chance | Instances
---------------|--------|----------
-0|0.01%|1
-1|61.65%|6165
-2|33.86%|3386
-3|4.25%|425
-4|0.2%|20
-5|0.03%|3
+Copies Pulled | Chance | Total Chance
+--------------|--------|-------------
+1|62.08%|100.00%
+2|33.38%|37.92%
+3|4.17%|4.54%
+4|0.35%|0.37%
+5|0.02%|0.02%
+
 *Wishes: 135 Pity: 35 Guarantee: No Samples: 10K*
 
 ## Saving
@@ -46,6 +46,7 @@ Wishes|Chance
 10|99.82%
 11|99.98%
 12|100%
+
 *Pulls: 1 Pity: 75 Guarantee: Yes Samples: 10K*
 
 # Is the Code Good?

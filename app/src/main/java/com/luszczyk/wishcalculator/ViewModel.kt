@@ -31,7 +31,6 @@ data class UiState(
     val chances: List<Int> = listOf(),
     val pities: List<Int> = listOf(),
 
-    //val savingSimulationResult: MutableMap<Int, BigDecimal> = mutableMapOf(),
     val savingSimulationResult: List<Pair<String, String>> = listOf(),
     val savingSimulationJob: Job? = null,
     val savingSimulationParameters: List<String> = listOf(),
@@ -180,12 +179,15 @@ class WishViewModel : ViewModel() {
                 val leastPulled = copiesPulled.keys.minOrNull() ?: 0
                 var totalPulled = leastPulled
 
-                val output : MutableList<Triple<String, String, String>> = arrayListOf(Triple("Copies Pulled", "Chance","Instances"))
+                val output : MutableList<Triple<String, String, String>> = arrayListOf(Triple("Copies Pulled", "Chance","Total Chance"))
+
+                var previousChance = 100.toBigDecimal()
 
                 while(totalPulled <= mostPulled && isActive) {
                     val instances = copiesPulled.getOrDefault(totalPulled, 0)
                     val chance = instances.toBigDecimal().divide(sampleSize.toBigDecimal()).times(100.toBigDecimal())
-                    output.add(Triple(totalPulled.toString(), "${chance.setScale(max(chance.scale()-2,0), RoundingMode.HALF_UP)}%", instances.toString()))
+                    output.add(Triple(totalPulled.toString(), "${chance.setScale(max(chance.scale()-2,0), RoundingMode.HALF_UP)}%", "${previousChance.setScale(max(chance.scale()-2,0), RoundingMode.HALF_UP)}%"))
+                    previousChance = previousChance.subtract(chance)
                     totalPulled += 1
                 }
                 if(isActive) {

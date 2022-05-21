@@ -223,7 +223,7 @@ fun ResultItem(result: Triple<String, String, String>){
         .padding(vertical = 8.dp, horizontal = 16.dp)) {
             Text(text = result.first, modifier = Modifier.weight(1f))
             Text(text = result.second, modifier = Modifier.weight(1f))
-            Text(text = result.third, modifier = Modifier.weight(0.5f))
+            Text(text = result.third, modifier = Modifier.weight(1f))
     }
 }
 
